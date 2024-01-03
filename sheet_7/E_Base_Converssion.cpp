@@ -1,17 +1,21 @@
-#include<iostream>
+#include <iostream>
 using namespace std;
-void Binary(int k){
-    
-}
-void printBinary(int n){
-    if(n>0){
-        int k;
-        cin>>k;
-        Binary(k)
+void decimalToBinary(int n) {
+    if (n > 1) {
+        decimalToBinary(n / 2);
     }
+   cout << n % 2;
 }
-int main(){
-    int n;
-    cin>>n;
-    printBinary(n);
+
+int main() {
+    int t;
+    cin >> t;
+    for (int i = 0; i < t; ++i) {
+        int n;
+        cin >> n;
+        decimalToBinary(n);
+        cout << endl;  
+    }
+
+    return 0;
 }

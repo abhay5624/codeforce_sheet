@@ -1,22 +1,21 @@
 #include<iostream>
 using namespace std;
-
-int countVowel(string s, int n, int count) {
-    if (s[n] != '\0') {
-        if ((s[n] >= 'a' && s[n] <= 'u') || (s[n] >= 'A' &&  s[n] <= 'U')) {
-             return countVowel(s, n + 1, count + 1);
-        } else {
-             return countVowel(s, n + 1, count);
+int count=0;
+void countVowel(string s, int n) {
+    if(s[n]!='\0')
+    {
+        char ch= tolower(s[n]);
+        if(ch=='a'|| ch=='e' || ch=='i' || ch=='o' || ch=='u'){
+            count++;
         }
-    } else {
-         return count;
+        countVowel(s,n+1);
     }
 }
 
 int main() {
     string s;
-    cin >> s;
-    int result = countVowel(s, 0, 0);
-    cout << result << endl;
+    getline(cin,s);
+    countVowel(s, 0);
+    cout << count << endl;
     return 0;
 }
